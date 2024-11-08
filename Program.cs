@@ -1,4 +1,6 @@
 using manage_my_assets.App;
+using manage_my_assets.Service.Implementation;
+using manage_my_assets.Service.Interface;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +26,11 @@ builder.Services.AddAuthentication((options) => {
     // Set the access denied path where the user will be redirected when access is denied
     options.AccessDeniedPath = "/Home/Index";
 });
+
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
 
 var app = builder.Build();
 
