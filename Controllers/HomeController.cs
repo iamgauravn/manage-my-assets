@@ -1,7 +1,10 @@
 using manage_my_assets.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace manage_my_assets.Controllers
 {
@@ -23,7 +26,7 @@ namespace manage_my_assets.Controllers
         public IActionResult Login()
         {
             return View();
-        }
+        } 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
