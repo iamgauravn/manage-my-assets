@@ -19,22 +19,22 @@
 
         <div class="col-5" style="margin-left:-800px">
 
-                <form asp-action="AddAccessories" asp-controller="Accessories" method="post">
-                    <div class="mb-3">
-                        <label for="accessoryName" class="form-label">Accessory Name</label>
-                        <input type="text" class="form-control" id="accessoryName" placeholder="Enter accessory name" name="accessoryName" required>
-                    </div>
-                     
-                    <div class="mb-3">
-                        <label for="accessoryDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="accessoryDescription" name="accessoryDescription" rows="4" placeholder="Enter a description of the accessory" required></textarea>
-                    </div>
-                      
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Add Accessory</button>
-                    </div>
-                </form>
-            
+            <form asp-action="AddAccessories" asp-controller="Accessories" method="post">
+                <div class="mb-3">
+                    <label for="accessoryName" class="form-label">Accessory Name</label>
+                    <input type="text" class="form-control" id="accessoryName" placeholder="Enter accessory name" name="accessoryName" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="accessoryDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="accessoryDescription" name="accessoryDescription" rows="4" placeholder="Enter a description of the accessory" required></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Add Accessory</button>
+                </div>
+            </form>
+              
         </div>
     </div>
 </div>

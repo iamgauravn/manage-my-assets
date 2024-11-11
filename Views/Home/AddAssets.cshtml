@@ -1,5 +1,48 @@
-﻿@*
+﻿@using manage_my_assets.ViewModel
+@model AddAccessoryViewModel
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+
+<div class="container">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4">Add Assets</h1>
+        <p>Here, you can manage and add new assets to your inventory.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-11">
+            @Html.Partial("_MenuView")
+        </div>
+
+        <div class="col-5" style="margin-left:-800px">
+
+            <form asp-action="AddAccessories" asp-controller="Accessories" method="post">
+                <div class="mb-3">
+                    <label for="assetType" class="form-label">Asset Type</label>
+                    <select class="form-control" id="assetType" name="SelectedAssetType" required>
+                        <option value="">Select Asset Type</option>
+                        @foreach (var assetType in Model.Accessories)
+                        {
+                            <option value="@assetType">@assetType</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="accessoryDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="accessoryDescription" name="accessoryDescription" rows="4" placeholder="Enter a description of the accessory" required></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Add Accessory</button>
+                </div>
+            </form>
+
+        </div>
+    </div>

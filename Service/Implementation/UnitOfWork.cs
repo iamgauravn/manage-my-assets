@@ -12,6 +12,7 @@ namespace manage_my_assets.Service.Implementation
         public UnitOfWork(AppDbContext dbContext)
         {
             _repositories = new Dictionary<Type, dynamic>();
+            _dbContext = dbContext;
         }
 
         public IGenericRepository<T> Repository<T>() where T : AuditableEntity
