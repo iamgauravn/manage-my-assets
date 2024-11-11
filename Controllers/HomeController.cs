@@ -17,13 +17,32 @@ namespace manage_my_assets.Controllers
             _logger = logger;
         }
 
-        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult Login()
+        {
+            return View();
+        } 
+
+        public IActionResult AddAssets()
+        {
+            return View();
+        } 
+
+        public IActionResult AddAccessories()
+        {
+            return View();
+        } 
+
+        public IActionResult AssetsAllocatment()
+        {
+            return View();
+        } 
+
+        public IActionResult AllocatmentHistory()
         {
             return View();
         } 

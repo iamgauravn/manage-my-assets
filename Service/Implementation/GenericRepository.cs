@@ -37,6 +37,8 @@ namespace manage_my_assets.Service.Implementation
 
         public async Task<T> Insert(T entity)
         {
+            var res = typeof(T);
+
             await _dbContext.Set<T>().AddAsync(entity);
             return entity;
         }

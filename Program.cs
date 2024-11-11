@@ -11,26 +11,11 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(x=>x.UseSqlServer(builder.Configuration.GetConnectionString("ManagerConnectionString")));
 
-builder.Services.AddAuthentication((options) => {
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme; 
-  options.DefaultSignInScheme =
-    CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultAuthenticateScheme =
-      CookieAuthenticationDefaults.AuthenticationScheme;
-    // Set the default scheme used to challenge authentication
-    options.DefaultChallengeScheme =
-      CookieAuthenticationDefaults.AuthenticationScheme;
-}).AddCookie((options) => {
-    // Set the login path where the user will be redirected for authentication
-    options.LoginPath = "/Home/Login";
-    // Set the access denied path where the user will be redirected when access is denied
-    options.AccessDeniedPath = "/Home/Index";
-});
-
-
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+
+builder.Services.AddScoped<IUserMasterService, UserMasterService>();
 
 var app = builder.Build();
 
